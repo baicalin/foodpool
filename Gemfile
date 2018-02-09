@@ -6,6 +6,11 @@ git_source(:github) do |repo_name|
 end
 
 gem 'devise'     # 회원가입 및 인증
+gem 'cancancan', '~> 2.0'
+gem "rolify"
+gem "letter_opener", :group => :development
+
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
