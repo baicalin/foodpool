@@ -10,7 +10,11 @@ gem 'cancancan', '~> 2.0'
 gem "rolify"
 gem "letter_opener", :group => :development
 
+#Action cable
+gem 'redis', '~> 3.2'
 
+
+gem 'rails_db', group: :development
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
