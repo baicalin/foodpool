@@ -6,10 +6,41 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css"/>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
   </head>
 
   <body>
+    <nav>
+      <div class="nav-wrapper container">
+        <a href="#!" class="brand-logo">Foodpool</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="sass.html">Sass</a></li>
+          <li>
+            <% if user_signed_in? %>
+              <%= link_to "로그아웃", destroy_user_session_path, method:"delete" %>
+            <% else %>
+              <%= link_to "로그인/회원가입", new_user_session_path %>
+            <% end %>
+          </li>
+          <li><%= link_to 'New Request', new_request_path, class:"btn right-align" %></li>
+
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+          <li><a href="collapsible.html">Javascript</a></li>
+          <li><a href="mobile.html">Mobile</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+
     <%= yield %>
+
+  </div>
+
   </body>
 </html>

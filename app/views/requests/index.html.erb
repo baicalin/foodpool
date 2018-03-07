@@ -1,35 +1,4 @@
-<nav>
-  <div class="nav-wrapper container">
-    <a href="#!" class="brand-logo">Foodpool</a>
-    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li>
-        <% if user_signed_in? %>
-          <%= link_to "로그아웃", destroy_user_session_path, method:"delete" %>
-        <% else %>
-          <%= link_to "로그인/회원가입", new_user_session_path %>
-        <% end %>
-      </li>
-      <li><%= link_to 'New Request', new_request_path, class:"btn right-align" %></li>
-
-    </ul>
-    <ul class="side-nav" id="mobile-demo">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>
-    </ul>
-  </div>
-</nav>
-<div class="container">
-
-  <div class="row">
-
-  </div>
-
-  <div class="row">
-    <table>
+    <table id="MainTable">
       <thead>
         <tr>
           <th>Title</th>
@@ -37,6 +6,9 @@
           <th>Status</th>
           <th>Charge</th>
           <th>유저수</th>
+          <th>show</th>
+          <th>edit</th>
+          <th>destroy</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -56,5 +28,8 @@
         <% end %>
       </tbody>
     </table>
-  </div>
-</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('#MainTable').DataTable();
+  });
+</script>
