@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  resources :requests
   devise_for :users
-
+  root "requests#index"
 
   # for chat
   resources :chat_rooms, only: [:new, :create, :show, :index]

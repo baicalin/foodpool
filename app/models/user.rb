@@ -2,7 +2,8 @@ class User < ApplicationRecord
 
   has_many :chat_rooms, dependent: :destroy
   has_many :messages, dependent: :destroy
-
+  has_many :members
+  has_many :requests, through: :members
 
   rolify
   # Include default devise modules. Others available are:
