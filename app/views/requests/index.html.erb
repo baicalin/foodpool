@@ -9,7 +9,11 @@
       <h4 style="margin: 0px;">서비스가 오픈 되었습니다 ! (공지사항 board 예시)</h4>
     </div>
     <div class="s6 m4 l4 right-align">
+      <% if user_signed_in? %>
+        <%= link_to "로그아웃", destroy_user_session_path, method:"delete" %>
+      <% else %>
         <%= link_to "로그인/회원가입", new_user_session_path %>
+      <% end %>
     </div>
   </div>
 
@@ -42,5 +46,5 @@
       </tbody>
     </table>
   </div>
-  <%= link_to 'New Request', new_request_path %>
+  <%= link_to 'New Request', new_request_path, class:"btn" %>
 </div>
