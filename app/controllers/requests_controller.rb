@@ -25,9 +25,9 @@ class RequestsController < ApplicationController
   # POST /requests.json
   def create
     @request = Request.new(request_params)
-
     respond_to do |format|
       if @request.save
+        Member.create(request_id: @request.id, user_id: current_user.id)
         format.html { redirect_to @request, notice: 'Request was successfully created.' }
         format.json { render :show, status: :created, location: @request }
       else

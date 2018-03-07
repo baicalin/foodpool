@@ -1,33 +1,46 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
 
-<h1>Requests</h1>
+  <div class="row">
+    <div class="col s12 l12 m12">
+      <h1>Foodpool</h1>
+    </div>
+    <div class="col s6 l8 m8">
+      <h4 style="margin: 0px;">서비스가 오픈 되었습니다 ! (공지사항 board 예시)</h4>
+    </div>
+    <div class="s6 m4 l4 right-align">
+        <%= link_to "로그인/회원가입", new_user_session_path %>
+    </div>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Contents</th>
-      <th>Status</th>
-      <th>Charge</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="row">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Contents</th>
+          <th>Status</th>
+          <th>Charge</th>
+          <th>유저수</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @requests.each do |request| %>
-      <tr>
-        <td><%= request.title %></td>
-        <td><%= request.contents %></td>
-        <td><%= request.status %></td>
-        <td><%= request.charge %></td>
-        <td><%= link_to 'Show', request %></td>
-        <td><%= link_to 'Edit', edit_request_path(request) %></td>
-        <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Request', new_request_path %>
+      <tbody>
+        <% @requests.each do |request| %>
+          <tr>
+            <td><%= request.title %></td>
+            <td><%= request.contents %></td>
+            <td><%= request.status %></td>
+            <td><%= request.charge %></td>
+            <td><%= request.users.count %></td>
+            <td><%= link_to 'Show', request %></td>
+            <td><%= link_to 'Edit', edit_request_path(request) %></td>
+            <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= link_to 'New Request', new_request_path %>
+</div>
