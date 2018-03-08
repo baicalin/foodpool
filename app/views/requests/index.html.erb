@@ -30,6 +30,12 @@
     </table>
 <script type="text/javascript">
   $(document).ready(function(){
-      $('#MainTable').DataTable();
+      $('#MainTable').DataTable(
+        {
+          "searching": false,
+          "lengthChange": false,
+
+        }
+      );
   });
 </script>
