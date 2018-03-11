@@ -25,6 +25,7 @@ class RequestsController < ApplicationController
   # POST /requests.json
   def create
     @request = Request.new(request_params)
+    @request.status = true
     respond_to do |format|
       if @request.save
         Member.create(request_id: @request.id, user_id: current_user.id)
